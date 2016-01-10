@@ -30,14 +30,16 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 //	var recGoods = ["First", "Second"]
 //	var recImages = ["1 - 85", "2 - 85"]
 	let howManyRecomededGoods = 8;
-	var recGoods = ["Первый продукт", "Второй продукт", "Третий продукт", "Четвертый продукт", "Пятый продукт", "Шестой продукт", "Седьмой продукт", "8-й продукт"]
-
+//	var recGoods = ["Первый продукт", "Второй продукт", "Третий продукт", "Четвертый продукт", "Пятый продукт", "Шестой продукт", "Седьмой продукт", "8-й продукт"]
+	var recGoods = ["Первый продукт", "Второй продукт", "Третий продукт", "Четвертый продукт", "Пятый продукт"]
+	
+	
 	let howManyActionedGoods = 3
 	var actProducts = ["Четвертый продукт", "Пятый продукт", "Шестой продукт"]
 	//var actImages = ["Detox", "pasta propolis", "shampoo"]
 	
 	var howManyNewGoods = 2;
-	var newGoods = ["Седьмой продукт", "8-й продукт"];
+	var newGoods = ["Седьмой продукт", "8-й продукт", "Another product"];
 	//var newImages = ["2 - 85", "3 - 85"]
 	
     override func viewDidLoad() {
@@ -139,145 +141,7 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if segue.identifier == "showSpecificNews" {
-			let sendingCell = sender as! OneNewsCollectionViewCell;
-			print("\(sendingCell.tag)")
-			let index = sendingCell.tag;
-			let currentNew = newsCatalog[index]
-			let destinationController = segue.destinationViewController as! OneNewController
-			destinationController.headerText = currentNew.header
-			destinationController.textNews = currentNew.text
-			destinationController.newsIcon =  currentNew.icon
-			destinationController.imageGallary = currentNew.newsPhoto
-			//			let currentNew = newsCatalog[index]
-			
-		}
-		if segue.identifier == "showSpecificGood" {
-			let sendingCell = sender as! recProductCell;
-			print("\(sendingCell.tag)")
-			let index = sendingCell.tag;
-			let currentGood = recGoods[index]
-			let destinationController = segue.destinationViewController as! ProductTableViewController
-			let product = recGoods[index].name;
-			let price = recGoods[index].price!;
-			let code = recGoods[index].id;
-			let description = recGoods[index].description;
-			let currency = recGoods[index].currency!;
-			
-			destinationController.strDescription = description;
-			
-			destinationController.strPrice = "\(price) \(currency)";
-			destinationController.strTitle = product;
-			destinationController.strCode = code;
-			destinationController.currentProduct = recGoods[index];
-			//
-			destinationController.imageData = recGoods[index].icon;
-			destinationController.video = recGoods[index].video
-			
-			//
-			let filemngr = NSFileManager.defaultManager();
-			let filename = getDocumentsDirectory().stringByAppendingPathComponent("\(code!).mp4")
-			if filemngr.fileExistsAtPath(filename){
-				let file: NSFileHandle? = NSFileHandle(forReadingAtPath: filename)
-				let fileSize = file!.seekToEndOfFile()
-				print("File already exists, it's size is : \(fileSize)")
-				
-			} else {
-				print("File not found")
-				if recGoods[index].video != nil
-				{
-					recGoods[index].video!.writeToFile(filename, atomically: true)
-				}
-			}
-			destinationController.sectionContentDict = ["", recGoods[index].description, recGoods[index].contains, recGoods[index].characteristics, recGoods[index].methods]
-			destinationController.videoFilePath = filename;
-			//			let currentNew = newsCatalog[index]
-			
-		}
-		if segue.identifier == "showActionedGood" {
-			let sendingCell = sender as! ActProdCell;
-			print("\(sendingCell.tag)")
-			let index = sendingCell.tag;
-			let currentGood = actProducts[index]
-			let destinationController = segue.destinationViewController as! ProductTableViewController
-			let product = actProducts[index].name;
-			let price = actProducts[index].price!;
-			let code = actProducts[index].id;
-			let description = actProducts[index].description;
-			let currency = actProducts[index].currency!;
-			
-			destinationController.strDescription = description;
-			
-			destinationController.strPrice = "\(price) \(currency)";
-			destinationController.strTitle = product;
-			destinationController.strCode = code;
-			destinationController.currentProduct = actProducts[index];
-			//
-			destinationController.imageData = actProducts[index].icon;
-			destinationController.video = actProducts[index].video
-			
-			//
-			let filemngr = NSFileManager.defaultManager();
-			let filename = getDocumentsDirectory().stringByAppendingPathComponent("\(code!).mp4")
-			if filemngr.fileExistsAtPath(filename){
-				let file: NSFileHandle? = NSFileHandle(forReadingAtPath: filename)
-				let fileSize = file!.seekToEndOfFile()
-				print("File already exists, it's size is : \(fileSize)")
-				
-			} else {
-				print("File not found")
-				if actProducts[index].video != nil
-				{
-					actProducts[index].video!.writeToFile(filename, atomically: true)
-				}
-			}
-			destinationController.sectionContentDict = ["", actProducts[index].description, actProducts[index].contains, actProducts[index].characteristics, actProducts[index].methods]
-			destinationController.videoFilePath = filename;
-			//			let currentNew = newsCatalog[index]
-			
-		}
-		if segue.identifier == "showNewGood" {
-			let sendingCell = sender as! recProductCell;
-			print("\(sendingCell.tag)")
-			let index = sendingCell.tag;
-			let currentGood = newGoods[index]
-			let destinationController = segue.destinationViewController as! ProductTableViewController
-			let product = newGoods[index].name;
-			let price = newGoods[index].price!;
-			let code = newGoods[index].id;
-			let description = newGoods[index].description;
-			let currency = newGoods[index].currency!;
-			
-			destinationController.strDescription = description;
-			
-			destinationController.strPrice = "\(price) \(currency)";
-			destinationController.strTitle = product;
-			destinationController.strCode = code;
-			destinationController.currentProduct = newGoods[index];
-			//
-			destinationController.imageData = newGoods[index].icon;
-			destinationController.video = newGoods[index].video
-			
-			//
-			let filemngr = NSFileManager.defaultManager();
-			let filename = getDocumentsDirectory().stringByAppendingPathComponent("\(code!).mp4")
-			if filemngr.fileExistsAtPath(filename){
-				let file: NSFileHandle? = NSFileHandle(forReadingAtPath: filename)
-				let fileSize = file!.seekToEndOfFile()
-				print("File already exists, it's size is : \(fileSize)")
-				
-			} else {
-				print("File not found")
-				if newGoods[index].video != nil
-				{
-					newGoods[index].video!.writeToFile(filename, atomically: true)
-				}
-			}
-			destinationController.sectionContentDict = ["", newGoods[index].description, newGoods[index].contains, newGoods[index].characteristics, newGoods[index].methods]
-			destinationController.videoFilePath = filename;
-			//			let currentNew = newsCatalog[index]
-			
-		}
+
 	}
 	
 	func getDocumentsDirectory() -> NSString {
@@ -287,32 +151,12 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 	}
 	
 	func showSpecificNew(index: Int) {
-		print("\(index)")
-//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//		let destinationController = storyboard.instantiateViewControllerWithIdentifier("OneNewController") as! OneNewController
-//		//controller.
-//		let currentNew = newsCatalog[index]
-//		
-//		destinationController.headerText = currentNew.header
-//		destinationController.textNews = currentNew.text
-//		destinationController.newsIcon =  currentNew.icon
-//		destinationController.imageGallary = currentNew.newsPhoto
-//		self.presentViewController(destinationController, animated: true, completion: nil)
+
 	}
 	
 	
 	func showSpecificRecGood(index: Int) {
-		//print("\(index)")
-//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//		let destinationController = storyboard.instantiateViewControllerWithIdentifier("OneProductController") as! ProductTableViewController
-//		//controller.
-//		let currentProd = recGoods[index]
-		
-//		destinationController.headerText = currentNew.header
-//		destinationController.textNews = currentNew.text
-//		destinationController.newsIcon =  currentNew.icon
-//		destinationController.imageGallary = currentNew.newsPhoto
-		self.presentViewController(destinationController, animated: true, completion: nil)
+
 	}
     // MARK: - Table view data source
 
@@ -416,14 +260,10 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 		switch collectionView.tag {
 		//MARK: РЕКОМЕНДОВАННЫЕ ТОВАРЫ, заполнение коллекшена
 		case 3: let cell = recommendedGoods.dequeueReusableCellWithReuseIdentifier("recProductCell", forIndexPath: indexPath) as! recProductCell
-		cell.recProdLabel.text = recGoods[indexPath.row].name
+		cell.recProdLabel.text = recGoods[indexPath.row]
 		cell.recProdLabel.tag = indexPath.row;
-		let icon = recGoods[indexPath.row].icon
-		if icon != nil
-		{
-			cell.recProductImage!.image = UIImage(data: icon!)
-			cell.recProductImage!.tag = indexPath.row;
-		}
+
+
 		cell.parentViewController = self
 		cell.tag = indexPath.row
 		
@@ -433,32 +273,22 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 			
 		//MARK: Акционные товары, заполнение коллекшена
 		case 2: let cell = actionedGoods.dequeueReusableCellWithReuseIdentifier("actProdCell", forIndexPath: indexPath) as! ActProdCell
-		cell.actLabel.text = actProducts[indexPath.row].name
+		cell.actLabel.text = actProducts[indexPath.row]
 		cell.tag = indexPath.row;
 
-		let icon = actProducts[indexPath.row].icon
-		if icon != nil
-		{
-			cell.actProdImage!.image = UIImage(data: icon!)
-			cell.actProdImage!.tag = indexPath.row;
-		}
+
 
 		return cell
 		//MARK: Новинки
 		case 1: let cell = newProducts.dequeueReusableCellWithReuseIdentifier("recProductCell", forIndexPath: indexPath) as! recProductCell
-		cell.recProdLabel.text = newGoods[indexPath.row].name
+		cell.recProdLabel.text = newGoods[indexPath.row]
 		cell.tag = indexPath.row;
-		let icon = newGoods[indexPath.row].icon
-		if icon != nil
-		{
-			cell.recProductImage!.image = UIImage(data: icon!)
-		}
+
 		
 		return cell
 		default:
 			let cell = recommendedGoods.dequeueReusableCellWithReuseIdentifier("recProductCell", forIndexPath: indexPath) as! recProductCell
-			//cell.recProductImage.image = UIImage(named: recImages[indexPath.row])
-			cell.recProdLabel.text = recGoods[indexPath.row].name
+			cell.recProdLabel.text = recGoods[indexPath.row]
 			return cell
 		}
 

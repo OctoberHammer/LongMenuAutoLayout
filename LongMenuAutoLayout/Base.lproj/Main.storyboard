@@ -50,7 +50,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news7" translatesAutoresizingMaskIntoConstraints="NO" id="IA8-0Q-bFY">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Detox" translatesAutoresizingMaskIntoConstraints="NO" id="IA8-0Q-bFY">
                                                                         <rect key="frame" x="8" y="8" width="176" height="135"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="clip" numberOfLines="9" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eld-lJ-qZC">
@@ -143,7 +143,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news7" translatesAutoresizingMaskIntoConstraints="NO" id="EwF-ib-fd7">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Detox" translatesAutoresizingMaskIntoConstraints="NO" id="EwF-ib-fd7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="89"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7M-j1-nxh">
@@ -206,7 +206,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news1" translatesAutoresizingMaskIntoConstraints="NO" id="HDd-o3-gbk">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Detox" translatesAutoresizingMaskIntoConstraints="NO" id="HDd-o3-gbk">
                                                                         <rect key="frame" x="0.0" y="-1" width="130" height="87"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-98-vYX">
@@ -286,7 +286,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news4" translatesAutoresizingMaskIntoConstraints="NO" id="G9X-sb-jNI">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Detox" translatesAutoresizingMaskIntoConstraints="NO" id="G9X-sb-jNI">
                                                                         <rect key="frame" x="1" y="0.0" width="129" height="91"/>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recommend" translatesAutoresizingMaskIntoConstraints="NO" id="Bux-1M-CF6">
@@ -416,12 +416,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Detox" width="800" height="800"/>
         <image name="list" width="260" height="194"/>
         <image name="menu" width="260" height="194"/>
         <image name="new!" width="260" height="194"/>
-        <image name="news1" width="260" height="194"/>
-        <image name="news4" width="260" height="194"/>
-        <image name="news7" width="260" height="194"/>
         <image name="recommend" width="260" height="194"/>
         <image name="подложка" width="320" height="67"/>
     </resources>

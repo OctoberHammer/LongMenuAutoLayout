@@ -18,37 +18,17 @@ class NewsLongMenuCell: UITableViewCell, UICollectionViewDataSource, UIScrollVie
 	
 
 	var parentViewController: StaticLongMenu?
-	var newsCatalog = [News]()
+	var newsCatalog = ["Первая новость о чем-то", "Вторая новость о чем-то другом", "Третья новость о чем-то вообще невероятном"]
 	
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//		      tableView.    registerNib(UINib(nibName: "NewsLongMenuCell", bundle: nil), forCellReuseIdentifier: "newsCarusel")
-//		self.newsCarusel.registerNib(UINib(nibName:"OneNewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "oneNewsCell");
-		if CoreDataManager().isNewsEmpty()
-		{
-			ParseManager().readNews()
-		}
-		else
-		{
-			ReloadNewsData()
-		}
+
     }
 	
 	func ReloadNewsData()
 	{
-		let CoreResult = CoreDataManager().readNews()
-		if CoreResult.code == 0
-		{
-			newsCatalog = CoreResult.news!
-			//			tableView.reloadData()
-		}
-		else
-		{
-			let alert = UIAlertView(title: "Ошибка загрузки", message: CoreResult.message!, delegate: self, cancelButtonTitle: "OK")
-			alert.show()
-		}
+
 		
 	}
 	
@@ -86,26 +66,14 @@ class NewsLongMenuCell: UITableViewCell, UICollectionViewDataSource, UIScrollVie
 	//MARK: Ячейка карусели
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("oneNewsCell", forIndexPath: indexPath) as! OneNewsCollectionViewCell
-//		cell.newsDescription.text = newsCatalog[indexPath.row]
-		
 		
 		let nextNew = newsCatalog[indexPath.row];
-		cell.newsHeader.text = nextNew.header;
+		cell.newsHeader.text = nextNew;
 		cell.tag = indexPath.row;
-		let icon = nextNew.icon
-		if icon != nil
-		{
-			cell.newsIcon.image = UIImage(data: icon!)
-		}
+
 		cell.parentViewController = self.parentViewController;
 		
-//		cell.dateLabel!.text = "\(nextNew.createdAt!)";
-//		cell.newsLabel!.text = nextNew.header
-//		
-//		let image = nextNew.icon
-//		if image != nil {
-//			cell.newsImageView!.image = UIImage(data: image!);
-//		}
+
 		return cell
 	}
 	
