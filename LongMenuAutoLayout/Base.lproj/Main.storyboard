@@ -108,8 +108,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="newsCarusel" destination="55r-yt-cUl" id="Xsc-Jf-d8I"/>
-                                            <outlet property="newsPages" destination="ozm-Kh-Sca" id="fnc-Nf-uI3"/>
+                                            <outlet property="newsCarusel" destination="55r-yt-cUl" id="fX4-5Q-5DW"/>
+                                            <outlet property="newsPages" destination="ozm-Kh-Sca" id="kK0-ZI-Bxz"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="290" id="N8o-At-cHS">
