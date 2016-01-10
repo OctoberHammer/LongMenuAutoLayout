@@ -83,23 +83,23 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 	func ReloadProductData()
 	{
 		
-		prodCatalog = appDelegate.productTable
-		recGoods.removeAll();
-		
-        for var i=0; i < howManyRecomededGoods; i++ {
-			recGoods.append(prodCatalog[i]);
-		
-        }
-		
-        actProducts.removeAll();
-		for var i=13; i < 13+howManyActionedGoods; i++ {
-			actProducts.append(prodCatalog[i]);
-		}
-		
-        newGoods.removeAll();
-		for var i=prodCatalog.count-howManyNewGoods-1; i < prodCatalog.count; i++ {
-			newGoods.append(prodCatalog[i]);
-		}
+//		prodCatalog = appDelegate.productTable
+//		recGoods.removeAll();
+//		
+//        for var i=0; i < howManyRecomededGoods; i++ {
+//			recGoods.append(prodCatalog[i]);
+//		
+//        }
+//		
+//        actProducts.removeAll();
+//		for var i=13; i < 13+howManyActionedGoods; i++ {
+//			actProducts.append(prodCatalog[i]);
+//		}
+//		
+//        newGoods.removeAll();
+//		for var i=prodCatalog.count-howManyNewGoods-1; i < prodCatalog.count; i++ {
+//			newGoods.append(prodCatalog[i]);
+//		}
 		
         tableView.reloadData()
 		
@@ -288,25 +288,25 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 	
 	func showSpecificNew(index: Int) {
 		print("\(index)")
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let destinationController = storyboard.instantiateViewControllerWithIdentifier("OneNewController") as! OneNewController
-		//controller.
-		let currentNew = newsCatalog[index]
-		
-		destinationController.headerText = currentNew.header
-		destinationController.textNews = currentNew.text
-		destinationController.newsIcon =  currentNew.icon
-		destinationController.imageGallary = currentNew.newsPhoto
-		self.presentViewController(destinationController, animated: true, completion: nil)
+//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//		let destinationController = storyboard.instantiateViewControllerWithIdentifier("OneNewController") as! OneNewController
+//		//controller.
+//		let currentNew = newsCatalog[index]
+//		
+//		destinationController.headerText = currentNew.header
+//		destinationController.textNews = currentNew.text
+//		destinationController.newsIcon =  currentNew.icon
+//		destinationController.imageGallary = currentNew.newsPhoto
+//		self.presentViewController(destinationController, animated: true, completion: nil)
 	}
 	
 	
 	func showSpecificRecGood(index: Int) {
 		//print("\(index)")
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let destinationController = storyboard.instantiateViewControllerWithIdentifier("OneProductController") as! ProductTableViewController
-		//controller.
-		let currentProd = recGoods[index]
+//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//		let destinationController = storyboard.instantiateViewControllerWithIdentifier("OneProductController") as! ProductTableViewController
+//		//controller.
+//		let currentProd = recGoods[index]
 		
 //		destinationController.headerText = currentNew.header
 //		destinationController.textNews = currentNew.text
