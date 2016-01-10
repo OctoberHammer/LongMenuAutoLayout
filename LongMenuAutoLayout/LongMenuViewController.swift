@@ -15,7 +15,7 @@ class LongMenuViewController: UIViewController, UITableViewDelegate, UITableView
 	@IBOutlet weak var showMenuButtom: UIBarButtonItem!
 	
 	var sections = ["Новости","Новинки", "Акционные товары", "Рекомендуемые товары", ""]
-	var newsCatalog = [News]()
+	var newsCatalog = ["Первая новость о том что что-то где-то произошло", "Вторая новость о том, что что-что где-то происходит прямо сейчас", "Третья новость о том, что что-то где-то произойдет очень скоро"]
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,48 +27,18 @@ class LongMenuViewController: UIViewController, UITableViewDelegate, UITableView
 		//MARK: регистрируем наши ячейки для ТэйблВью
 		tableView.registerNib(UINib(nibName: "cellContacts", bundle: nil), forCellReuseIdentifier: "cellContacts")
 		tableView.registerNib(UINib(nibName: "RecommendedTableViewCell", bundle: nil), forCellReuseIdentifier: "recommendedCell")
-		
-		if self.revealViewController() != nil {
-			showMenuButtom.target = self.revealViewController()
-			showMenuButtom.action = "revealToggle:"
-			
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-		}
-		
-		if CoreDataManager().isNewsEmpty()
-		{
-			ParseManager().readNews()
-		}
-		else
-		{
-			ReloadNewsData()
-		}
+
     }
 
 //TODO: Мы перечитываем новости
 //Но ТэйблВью нам релоадить не нужно, нам нужно их передать в ячейку, а те в свою очередь обновят КоллекшенВью	
 	func ReloadNewsData()
 	{
-		let CoreResult = CoreDataManager().readNews()
-		if CoreResult.code == 0
-		{
-			newsCatalog = CoreResult.news!
-//			tableView.reloadData()
-		}
-		else
-		{
-			let alert = UIAlertView(title: "Ошибка загрузки", message: CoreResult.message!, delegate: self, cancelButtonTitle: "OK")
-			alert.show()
-		}
+
 		
 	}
 	
-	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
 
-    }
-	
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		switch indexPath.row{
 		case 0: return 259
