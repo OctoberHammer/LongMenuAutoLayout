@@ -29,7 +29,7 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 	
 //	var recGoods = ["First", "Second"]
 //	var recImages = ["1 - 85", "2 - 85"]
-	let howManyRecomededGoods = 8;
+	let howManyRecomededGoods = 5;
 //	var recGoods = ["Первый продукт", "Второй продукт", "Третий продукт", "Четвертый продукт", "Пятый продукт", "Шестой продукт", "Седьмой продукт", "8-й продукт"]
 	var recGoods = ["Первый продукт", "Второй продукт", "Третий продукт", "Четвертый продукт", "Пятый продукт"]
 	
@@ -38,7 +38,7 @@ class StaticLongMenu: UITableViewController, UICollectionViewDataSource, UIColle
 	var actProducts = ["Четвертый продукт", "Пятый продукт", "Шестой продукт"]
 	//var actImages = ["Detox", "pasta propolis", "shampoo"]
 	
-	var howManyNewGoods = 2;
+	var howManyNewGoods = 3;
 	var newGoods = ["Седьмой продукт", "8-й продукт", "Another product"];
 	//var newImages = ["2 - 85", "3 - 85"]
 	
